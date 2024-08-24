@@ -36,17 +36,17 @@ stop_wireguard () {
 
 update_system () {
   echo -e "${YELLOW}Updating System${NC}..."
-  apt update
-  apt upgrade -y
+  dnf update
+  dnf upgrade -y
   echo -e "[${GREEN}Done${NC}]"
 }
 
 install_required () {
   echo -e "${YELLOW}Installing Required Software${NC}..."
   if [[ $SERVERTYPE == 1 ]]; then
-    apt install iputils-ping ufw wireguard -y
+    dnf install iputils-ping ufw wireguard -y
   else
-    apt install wireguard -y
+    dnf install wireguard -y
   fi
   echo -e "[${GREEN}Done${NC}]"
 }
